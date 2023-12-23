@@ -1,0 +1,5 @@
+service: () -> {
+    aNewClass: (text) -> (text);
+    bGetClassroomAttendance: (text) -> (text) query;
+    cDoPresense: (text, text) -> (text);
+}
