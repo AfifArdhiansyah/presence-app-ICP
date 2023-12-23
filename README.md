@@ -1,47 +1,63 @@
 # presence-app-ICP
 
-Welcome to your first Azle project! This example project will help you to deploy your first canister (application) to the Internet Computer (IC) decentralized cloud. It is a simple getter/setter canister. You can always refer to [The Azle Book](https://demergent-labs.github.io/azle/) for more in-depth documentation.
+## Overview
 
-`dfx` is the tool you will use to interact with the IC locally and on mainnet. If you don't already have it installed:
+The Presence App is a comprehensive application designed to streamline attendance tracking in educational settings. Leveraging the power of the Azle library, this app provides an efficient and user-friendly solution for teachers and educators to manage and monitor student attendance in various classrooms.
 
-```bash
-npm run dfx_install
-```
+<!-- insert the video from /assets/ -->
+<!-- ![Watch the video](https://i.stack.imgur.com/Vp2cE.png) -->
 
-Next you will want to start a replica, which is a local instance of the IC that you can deploy your canisters to:
 
-```bash
-npm run replica_start
-```
+## Functions
 
-If you ever want to stop the replica:
+Here is some functions that work in this app.
 
-```bash
-npm run replica_stop
-```
+1. Function to create a new class (`aNewClass`).
+   This function allows the user to create a new classroom and generates a unique 4-digit presence code for that class.
 
-Now you can deploy your canister locally:
+   ```
+   const result = await aNewClass("STRUKTUR DATA");
+   ```
 
-```bash
-npm install
-npm run canister_deploy_local
-```
+2. Function to mark presence of students (`bDoPresence`).
+   This function enables users to mark the attendance of a student by entering the presence code associated with a specific classroom.
 
-To call the methods on your canister:
+   ```
+   const result = await cDoPresence("4334", "NUR MUHAMMAD");
+   ```
 
-```bash
-npm run canister_call_get_message
-npm run canister_call_set_message
-```
+3. Function to get classroom attendance (`cGetClassroomAttendance`).
+   Retrieve the attendance details for a specific classroom, including the class name, presence code, and a list of attendees.
 
-If you run the above commands and then call `npm run canister_call_get_message` you should see:
+   ```
+   const result = await bGetClassroomAttendance("STRUKTUR DATA");
+   ```
 
-```bash
-("Hello world!")
-```
 
-Assuming you have [created a cycles wallet](https://internetcomputer.org/docs/current/developer-docs/quickstart/network-quickstart) and funded it with cycles, you can deploy to mainnet like this:
+## How to Use
 
-```bash
-npm run canister_deploy_mainnet
-```
+You can run this project by running the following command:
+
+1. Clone the repository.
+ 
+    ```
+    git clone 
+    ```
+
+2. Install the dependencies.
+
+    ```
+    npm install
+    ```
+
+3. In the first terminal, start the `dfx` server.
+   ```
+   dfx start
+   ```
+
+4. In another terminal, deploy the app to start the web ui.
+    ```
+    dfx deploy
+    ```
+
+5. Open the URL that given from step 4 in your browser. Boom, you can access the presence app!
