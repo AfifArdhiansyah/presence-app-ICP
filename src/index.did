@@ -1,0 +1,4 @@
+service: () -> {
+    getMessages: () -> (text) query;
+    setMessage: (text) -> ();
+}
