@@ -2,63 +2,60 @@ import { Canister, query, text, update, Void } from "azle";
 
 type StudentAttendance = {
     students: Array<string>;
-}
+};
 
 type Classroom = {
     name: string;
-    presenseCode: string;
+    presenceCode: string; // Renamed from "presenseCode" to "presenceCode" for consistency
     studentAttendance: StudentAttendance;
-}
+};
 
 const classrooms: Array<Classroom> = [];
 
 const studentAttendance: StudentAttendance = {
-    students: []
-}
+    students: [],
+};
 
 export default Canister({
     aNewClass: update([text], text, async (className) => {
-        //generate new code 4 digits number
-        const code = Math.floor(Math.random() * 10000).toString();
-        //create new classroom
+        // Generate new code (4-digit number)
+        const code = Math.floor(1000 + Math.random() * 9000).toString();
+        // Create a new classroom
         const classroom: Classroom = {
             name: className,
-            presenseCode: code,
-            studentAttendance: studentAttendance
-        }
-        //add classroom to classrooms
+            presenceCode: code, // Renamed from "presenseCode" to "presenceCode" for consistency
+            studentAttendance: studentAttendance,
+        };
+        // Add the classroom to classrooms
         classrooms.push(classroom);
-        return `the presence code is: ${code}`;
+        return `The presence code is: ${code}`;
     }),
-    cDoPresense: update([text, text], text, async (code, studentName) => {
-        //find code in classroom
-        const classroom = classrooms.find((classroom) => classroom.presenseCode === code);
-        //if classroom not found return failed
+    cDoPresence: update([text, text], text, async (code, studentName) => {
+        // Find code in the classroom
+        const classroom = classrooms.find((classroom) => classroom.presenceCode === code); // Renamed from "presenseCode" to "presenceCode" for consistency
+        // If the classroom is not found, return failed
         if (!classroom) {
             return "Failed";
-        }
-        else{
-            //add student to studentAttendance
+        } else {
+            // Add the student to studentAttendance
             classroom.studentAttendance.students.push(studentName);
             return "Success";
         }
     }),
     bGetClassroomAttendance: query([text], text, async (className) => {
-        //find classroom
+        // Find the classroom
         const classroom = classrooms.find((classroom) => classroom.name === className);
-        //if classroom not found return failed
+        // If the classroom is not found, return failed
         if (!classroom) {
             return "Failed";
-        }
-        else{
-            let returnStudents = "Class: " + classroom.name + ". Presence Code: " +  classroom.presenseCode + ". Attendees: ";
-            //loop through students
+        } else {
+            let returnStudents = `Class: ${classroom.name}. Presence Code: ${classroom.presenceCode}. Attendees: `;
+            // Loop through students
             classroom.studentAttendance.students.forEach((student) => {
-                //add student to returnStudents
-                returnStudents += student + ", ";
-            })
+                // Add the student to returnStudents
+                returnStudents += `${student}, `;
+            });
             return returnStudents;
         }
-    })
-
-})
+    }),
+});
