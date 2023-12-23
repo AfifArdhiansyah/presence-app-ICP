@@ -1,5 +1,8 @@
 # presence-app-ICP
 
+## Team
+Hello, we are from **Fafife Maqin Yaqin**.
+
 ## Overview
 
 The Presence App is a comprehensive application designed to streamline attendance tracking in educational settings. Leveraging the power of the Azle library, this app provides an efficient and user-friendly solution for teachers and educators to manage and monitor student attendance in various classrooms.
