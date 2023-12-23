@@ -6,7 +6,7 @@ The Presence App is a comprehensive application designed to streamline attendanc
 
 <!-- insert the video from /assets/ -->
 <!-- ![Watch the video](https://i.stack.imgur.com/Vp2cE.png) -->
-
+![Documentation](https://github.com/AfifArdhiansyah/presence-app-ICP/assets/64957624/ea5909bc-8a95-457c-af83-c59639cb57b5)
 
 ## Functions
 
