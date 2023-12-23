@@ -4,7 +4,7 @@
 
 The Presence App is a comprehensive application designed to streamline attendance tracking in educational settings. Leveraging the power of the Azle library, this app provides an efficient and user-friendly solution for teachers and educators to manage and monitor student attendance in various classrooms.
 
-[![Documentation](https://github.com/AfifArdhiansyah/presence-app-ICP/issues/1#issue-2054835443)
+![Documentation](https://github.com/AfifArdhiansyah/presence-app-ICP/issues/1#issue-2054835443)
 
 ## Functions
 
